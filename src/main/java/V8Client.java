@@ -2,12 +2,16 @@ import model.V8Response;
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import java.io.File;
-
 /**
  * Created by Riz
  */
 public class V8Client {
+
+  /**
+   * @param flow - will be the flow file, however for testing purposes this is json
+   * @param industry
+   * @return V8Response
+   */
   public V8Response parse(String flow, String industry)
   {
     try
