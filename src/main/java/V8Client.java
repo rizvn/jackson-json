@@ -12,12 +12,16 @@ public class V8Client {
    * @param industry
    * @return V8Response
    */
-  public V8Response parse(String flow, String industry)
+  public V8Response parse(String flow, String industry, boolean strictValidation)
   {
     try
     {
       ObjectMapper mapper = new ObjectMapper();
-      mapper.disable(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES); //ignore unmapped
+
+      if(!strictValidation)
+      {
+        mapper.disable(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES); //ignore unmapped items
+      }
 
       //read json as v8 response
       return mapper.readValue(flow, V8Response.class);

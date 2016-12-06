@@ -20,7 +20,7 @@ public class AppTest {
 
     String jsonFlow = loadStringFromFile("src/test/resources/flow.json");
 
-    V8Response v8Response = v8Client.parse(jsonFlow, "RGMA");
+    V8Response v8Response = v8Client.parse(jsonFlow, "RGMA", false);
 
     //get 1st group
     D0062 d0062 = v8Response.getGroups().get(0).typed();
