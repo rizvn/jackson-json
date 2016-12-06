@@ -30,9 +30,9 @@ public class AppTest {
     //get d0062.d0063
     D0063 d0063 = d0062.getGroups().get(0).typed();
 
-    Assert.assertNotNull(d0062);
-    Assert.assertNotNull(d0063);
-    Assert.assertEquals("123", d0062.getJ0003());
+    Assert.assertNotNull("should not be null, but was",d0062);
+    Assert.assertNotNull("should not be null but was", d0063);
+    Assert.assertEquals("Did not match contents of json file", "123", d0062.getJ0003());
   }
 
   private String loadStringFromFile(String path){
@@ -79,7 +79,7 @@ public class AppTest {
     //get 1st group
     List<Group> d0062s = v8Response.getGroupsOfType(D0062.class);
 
-    //get d0062.d0063
-    Assert.assertFalse(d0062s.isEmpty());
+
+    Assert.assertFalse("Should return group of type d0062, but didnt", d0062s.isEmpty());
   }
 }
