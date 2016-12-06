@@ -1,4 +1,6 @@
-package model;
+package model.elec;
+
+import model.base.Group;
 
 public class D0062 extends Group {
     private String J0003;

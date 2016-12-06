@@ -1,5 +1,10 @@
 package model;
 
+import model.base.Group;
+import model.elec.D0062;
+import model.elec.D0063;
+import model.gas.UD02;
+import model.gas.UD03;
 import org.codehaus.jackson.annotate.JsonSubTypes;
 import org.codehaus.jackson.annotate.JsonTypeInfo;
 
@@ -12,8 +17,13 @@ public class V8Response {
 
     @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", include = JsonTypeInfo.As.PROPERTY, defaultImpl = Group.class)
     @JsonSubTypes({
+      //---- ELEC GROUPS ---
       @JsonSubTypes.Type(name = "D0062", value = D0062.class),
-      @JsonSubTypes.Type(name = "D0063", value = D0063.class)
+      @JsonSubTypes.Type(name = "D0063", value = D0063.class),
+
+      //---- GAS GROUPS ---
+      @JsonSubTypes.Type(name = "UD02", value = UD02.class),
+      @JsonSubTypes.Type(name = "UD03", value = UD03.class),
     })
     public List<Group> getGroups() {
         return groups;

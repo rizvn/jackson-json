@@ -1,4 +1,6 @@
-package model;
+package model.elec;
+
+import model.base.Group;
 
 import java.util.ArrayList;
 import java.util.List;

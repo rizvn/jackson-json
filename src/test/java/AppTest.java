@@ -1,6 +1,6 @@
-import model.D0062;
-import model.D0063;
-import model.Group;
+import model.elec.D0062;
+import model.elec.D0063;
+import model.base.Group;
 import model.V8Response;
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;

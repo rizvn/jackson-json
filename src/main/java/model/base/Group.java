@@ -1,5 +1,7 @@
-package model;
+package model.base;
 
+import model.elec.D0062;
+import model.elec.D0063;
 import org.codehaus.jackson.annotate.JsonSubTypes;
 import org.codehaus.jackson.annotate.JsonTypeInfo;
 
