@@ -1,0 +1,15 @@
+{
+  "name" : "bob",
+  "age" : 33,
+  "messages" : [
+    {
+      "type": "long",
+      "text": "12344ertyguhj;dkl;fdsfdsjkljkgdfl;gjdskfl;j;dfskl;"
+    },
+
+    {
+      "type": "short",
+      "text": "123"
+    }
+  ]
+}
