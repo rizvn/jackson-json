@@ -1,5 +1,6 @@
 import model.D0062;
 import model.D0063;
+import model.Group;
 import model.V8Response;
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -7,6 +8,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -63,5 +65,21 @@ public class AppTest {
 
     String jsonDataString = mapper.writeValueAsString(v8Response);
     System.out.println(jsonDataString);
+  }
+
+
+  @Test
+  public void testReturnGroupsOfType() throws Exception{
+    V8Client v8Client = new V8Client();
+
+    String jsonFlow = loadStringFromFile("src/test/resources/flow.json");
+
+    V8Response v8Response = v8Client.parse(jsonFlow, "RGMA", false);
+
+    //get 1st group
+    List<Group> d0062s = v8Response.getGroupsOfType(D0062.class);
+
+    //get d0062.d0063
+    Assert.assertFalse(d0062s.isEmpty());
   }
 }

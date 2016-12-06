@@ -5,6 +5,7 @@ import org.codehaus.jackson.annotate.JsonTypeInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class V8Response {
     private List<Group> groups = new ArrayList<Group>();
@@ -20,5 +21,11 @@ public class V8Response {
 
     public void setGroups(List<Group> groups) {
         this.groups = groups;
+    }
+
+    public List<Group> getGroupsOfType(Class<?> type){
+       return getGroups().stream()
+                .filter(group -> group.getClass().getCanonicalName().equals(type.getCanonicalName())) //return only groups of type
+                .collect(Collectors.toList()); //return list
     }
 }
