@@ -8,6 +8,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,6 +32,10 @@ public class AppTest {
 
     //get d0062.d0063
     D0063 d0063 = d0062.getGroups().get(0).typed();
+
+    Assert.assertTrue(d0062.getTheDate().equals(LocalDate.of(2016, 1, 1)));
+    Assert.assertTrue(d0062.getTheTime().equals(LocalTime.of(14, 56, 34)));
+    Assert.assertTrue(d0062.getTheDateTime().equals(LocalDateTime.of(2016, 1, 1, 14, 56, 34)));
 
     Assert.assertNotNull("should not be null, but was",d0062);
     Assert.assertNotNull("should not be null but was", d0063);

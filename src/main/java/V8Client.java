@@ -1,6 +1,15 @@
 import model.V8Response;
+import model.base.deserialisers.DateDeserialiser;
+import model.base.deserialisers.DateTimeDeserialiser;
+import model.base.deserialisers.TimeDeserialiser;
+import org.codehaus.jackson.Version;
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.module.SimpleModule;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * Created by Riz
@@ -17,6 +26,12 @@ public class V8Client {
     try
     {
       ObjectMapper mapper = new ObjectMapper();
+
+      SimpleModule module = new SimpleModule("base", new Version(1, 1, 1, "1"));
+      module.addDeserializer(LocalDate.class, new DateDeserialiser());
+      module.addDeserializer(LocalDateTime.class, new DateTimeDeserialiser());
+      module.addDeserializer(LocalTime.class, new TimeDeserialiser());
+      mapper.registerModule(module);
 
       if(!strictValidation)
       {
